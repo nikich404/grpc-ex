@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "grpcEx/proto";
+
+service CalculatorService {
+  rpc Calculate (CalculateRequest) returns (CalculateResponse);
+}
+
+enum Operation {
+  ADD = 0;
+  SUBTRACT = 1;
+  MULTIPLY = 2;
+  DIVIDE = 3;
+}
+
+message CalculateRequest {
+  double first_number = 1;
+  double second_number = 2;
+  Operation operation = 3;
+}
+
+
+message CalculateResponse {
+  double result = 1;
+}
